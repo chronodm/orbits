@@ -18,9 +18,8 @@ import java.applet.*;
 import java.awt.*;
 import java.util.*;
 import java.net.*;
-import VisualFeedback;
 
-public abstract class experiment extends Applet implements Runnable {
+public abstract class Experiment extends Applet implements Runnable {
     static String appName = "experiment";       // Experiment name
 
     VisualFeedback display;

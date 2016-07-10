@@ -15,7 +15,7 @@
 
 import java.awt.*;
 
-public class orbitViewer extends energyPlot {
+public class OrbitViewer extends EnergyPlot {
     private final String build = "";
 
     Polygon orbiTrail, apAstron;
@@ -24,7 +24,7 @@ public class orbitViewer extends energyPlot {
 
     //  Constructor
 
-    public orbitViewer(int width, int height) {
+    public OrbitViewer(int width, int height) {
         super(width, height);
     }
 

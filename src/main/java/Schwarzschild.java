@@ -15,7 +15,7 @@
 
 import java.awt.*;
 
-public class Schwarzschild extends energyPlot {
+public class Schwarzschild extends EnergyPlot {
     private final String build = "";
 
     //  Constructor

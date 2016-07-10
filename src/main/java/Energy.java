@@ -15,10 +15,10 @@
 
 import java.awt.*;
 
-public class energy extends experiment {
-    protected energyPlot bdisp;
-    protected orbitViewer odisp;
-    protected energyPlot sdisp;
+public class Energy extends Experiment {
+    protected EnergyPlot bdisp;
+    protected OrbitViewer odisp;
+    protected EnergyPlot sdisp;
     TextField angMomentum, mass, maxRad;
     Rectangle r;
 
@@ -28,11 +28,11 @@ public class energy extends experiment {
 
         //  display: Effective potential plot
 
-        display = (VisualFeedback) (bdisp = new energyPlot(width / 2, height / 2 - 15));
+        display = (VisualFeedback) (bdisp = new EnergyPlot(width / 2, height / 2 - 15));
 
         //  odisp: Orbit viewer
 
-        odisp = new orbitViewer(width / 2, height - 30);
+        odisp = new OrbitViewer(width / 2, height - 30);
 
         //  sdisp: Schwarzschild embedding diagram plot
 
@@ -41,9 +41,9 @@ public class energy extends experiment {
         //  Link each component to its peers
 
         bdisp.setOrbitViewer(odisp);
-        bdisp.setSchwarzschild((energyPlot) sdisp);
+        bdisp.setSchwarzschild((EnergyPlot) sdisp);
         sdisp.setOrbitViewer(odisp);
-        sdisp.setSchwarzschild((energyPlot) bdisp);
+        sdisp.setSchwarzschild((EnergyPlot) bdisp);
     }
 
     //  INIT  --  Applet is loaded--create our objects and display them

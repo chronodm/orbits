@@ -16,13 +16,13 @@
 
 import java.awt.*;
 
-public class energyPlot extends VisualFeedback {
+public class EnergyPlot extends VisualFeedback {
     private final String build = "";
 
     boolean initialised = false;
     Image chart;
-    orbitViewer ov = null;
-    energyPlot sv = null;
+    OrbitViewer ov = null;
+    EnergyPlot sv = null;
     int reentry = 0;
 
     public double ANG = 3.57,         // Angular momentum
@@ -41,20 +41,20 @@ public class energyPlot extends VisualFeedback {
     
     // Constructors
 
-    public energyPlot(int width, int height) {
+    public EnergyPlot(int width, int height) {
         super(width, height);
         initialised = true;
     }
 
     //  SETORBITVIEWER  --  Set peer orbit viewer
 
-    public void setOrbitViewer(orbitViewer o) {
+    public void setOrbitViewer(OrbitViewer o) {
         ov = o;
     }
 
     //  SETSCHWARZSCHILD  --  Set peer Schwarzschild metric viewer
 
-    public void setSchwarzschild(energyPlot s) {
+    public void setSchwarzschild(EnergyPlot s) {
         sv = s;
     }
 
