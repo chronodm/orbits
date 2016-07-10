@@ -30,19 +30,19 @@ package acme.widgets;
 
 import java.awt.*;
 
-/// A panel that adds a border around the contents.
-// <P>
-// Sample usage:
-// <IMG ALIGN=RIGHT WIDTH=340 HEIGHT=60 SRC="BorderPanel.gif">
-// <BLOCKQUOTE><PRE><CODE>
-// BorderPanel p = new BorderPanel( BorderPanel.IN );
-// </CODE></PRE></BLOCKQUOTE>
-// <P>
-// <A HREF="/resources/classes/Acme/Widgets/BorderPanel.java">Fetch the software.</A><BR>
-// <A HREF="/resources/classes/Acme.tar.gz">Fetch the entire Acme package.</A>
-
-public class BorderPanel extends Panel
-    {
+/**
+ * A panel that adds a border around the contents.
+ * <p>
+ * Sample usage:
+ * <IMG ALIGN=RIGHT WIDTH=340 HEIGHT=60 SRC="BorderPanel.gif">
+ * <BLOCKQUOTE><PRE><CODE>
+ * BorderPanel p = new BorderPanel( BorderPanel.IN );
+ * </CODE></PRE></BLOCKQUOTE>
+ * <p>
+ * <A HREF="http://www.acme.com/resources/classes/Acme/Widgets/BorderPanel.java">Fetch the software.</A><BR>
+ * <A HREF="http://www.acme.com/resources/classes/Acme.tar.gz">Fetch the entire Acme package.</A>
+ */
+public class BorderPanel extends Panel {
 
     public static final int SOLID = 0;
     public static final int RAISED = 1;
@@ -56,179 +56,172 @@ public class BorderPanel extends Panel
     private Panel innerPanel = null;
 
     /// Constructor.
-    public BorderPanel( int type, int thickness )
-	{
-	this.type = type;
-	this.thickness = thickness;
-	build();
-	}
+    public BorderPanel(int type, int thickness) {
+        this.type = type;
+        this.thickness = thickness;
+        build();
+    }
 
     /// Constructor, default thickness for this type.
-    public BorderPanel( int type )
-	{
-	this.type = type;
-	switch ( type )
-	    {
-	    case SOLID:
-	    thickness = 2;
-	    break;
-	    case RAISED:
-	    thickness = 2;
-	    break;
-	    case LOWERED:
-	    thickness = 2;
-	    break;
-	    case IN:
-	    thickness = 2;
-	    break;
-	    case OUT:
-	    thickness = 2;
-	    break;
-	    }
-	build();
-	}
-    
-    private void build()
-	{
-	// Make the inner panel.
-	Panel ip = new Panel();
+    public BorderPanel(int type) {
+        this.type = type;
+        switch (type) {
+            case SOLID:
+                thickness = 2;
+                break;
+            case RAISED:
+                thickness = 2;
+                break;
+            case LOWERED:
+                thickness = 2;
+                break;
+            case IN:
+                thickness = 2;
+                break;
+            case OUT:
+                thickness = 2;
+                break;
+        }
+        build();
+    }
 
-	// Add the inner panel using a GridBagLayout because that layout
-	// manager implements inserts.
-	GridBagLayout gb = new GridBagLayout();
-	setLayout( gb );
-	GridBagConstraints gbc = new GridBagConstraints();
-	gbc.fill = GridBagConstraints.BOTH;
-	gbc.weightx = gbc.weighty = 1.0;
-	gbc.insets = new Insets( thickness, thickness, thickness, thickness );
-	gb.setConstraints( ip, gbc );
-	add( ip, -1 );
+    private void build() {
+        // Make the inner panel.
+        Panel ip = new Panel();
 
-	// And set the inner panel so that the delegated methods start using it.
-	innerPanel = ip;
-	}
+        // Add the inner panel using a GridBagLayout because that layout
+        // manager implements inserts.
+        GridBagLayout gb = new GridBagLayout();
+        setLayout(gb);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = gbc.weighty = 1.0;
+        gbc.insets = new Insets(thickness, thickness, thickness, thickness);
+        gb.setConstraints(ip, gbc);
+        add(ip, -1);
+
+        // And set the inner panel so that the delegated methods start using it.
+        innerPanel = ip;
+    }
 
 
     /// Paint the border.
-    public void paint( Graphics graphics )
-	{
-	Dimension size = size();
-	// Dimension size = getSize();
-	graphics.setColor( getBackground() );
-	switch ( type )
-	    {
-	    case SOLID:
-	    graphics.setColor( getForeground() );
-	    for ( int i = 0; i < thickness; ++i )
-		graphics.drawRect(
-		    i, i, size.width - i * 2 - 1, size.height - i * 2 - 1 );
-	    break;
+    public void paint(Graphics graphics) {
+        Dimension size = size();
+        // Dimension size = getSize();
+        graphics.setColor(getBackground());
+        switch (type) {
+            case SOLID:
+                graphics.setColor(getForeground());
+                for (int i = 0; i < thickness; ++i)
+                    graphics.drawRect(
+                            i, i, size.width - i * 2 - 1, size.height - i * 2 - 1);
+                break;
 
-	    case RAISED:
-	    for ( int i = 0; i < thickness; ++i )
-		graphics.draw3DRect(
-		    i, i, size.width - i * 2 - 1, size.height - i * 2 - 1,
-		    true );
-	    break;
+            case RAISED:
+                for (int i = 0; i < thickness; ++i)
+                    graphics.draw3DRect(
+                            i, i, size.width - i * 2 - 1, size.height - i * 2 - 1,
+                            true);
+                break;
 
-	    case LOWERED:
-	    for ( int i = 0; i < thickness; ++i )
-		graphics.draw3DRect(
-		    i, i, size.width - i * 2 - 1, size.height - i * 2 - 1,
-		    false );
-	    break;
+            case LOWERED:
+                for (int i = 0; i < thickness; ++i)
+                    graphics.draw3DRect(
+                            i, i, size.width - i * 2 - 1, size.height - i * 2 - 1,
+                            false);
+                break;
 
-	    case IN:
-	    graphics.draw3DRect( 0, 0, size.width - 1, size.height - 1, false );
-	    graphics.draw3DRect(
-		thickness - 1, thickness - 1,
-		size.width - thickness * 2 + 1, size.height - thickness * 2 + 1,
-		true );
-	    break;
+            case IN:
+                graphics.draw3DRect(0, 0, size.width - 1, size.height - 1, false);
+                graphics.draw3DRect(
+                        thickness - 1, thickness - 1,
+                        size.width - thickness * 2 + 1, size.height - thickness * 2 + 1,
+                        true);
+                break;
 
-	    case OUT:
-	    graphics.draw3DRect( 0, 0, size.width - 1, size.height - 1, true );
-	    graphics.draw3DRect(
-		thickness - 1, thickness - 1,
-		size.width - thickness * 2 + 1, size.height - thickness * 2 + 1,
-		false );
-	    break;
-	    }
-	}
+            case OUT:
+                graphics.draw3DRect(0, 0, size.width - 1, size.height - 1, true);
+                graphics.draw3DRect(
+                        thickness - 1, thickness - 1,
+                        size.width - thickness * 2 + 1, size.height - thickness * 2 + 1,
+                        false);
+                break;
+        }
+    }
 
 
     // Delegate other Container/Panel methods to the superclass if we
     // are initializing, otherwise to the inner panel.
 
-    public int countComponents()
-	{
-	if ( innerPanel == null )
-	    return super.getComponentCount();
-	else
-	    return innerPanel.getComponentCount();
-	}
-    public Component getComponent( int n )
-	{
-	if ( innerPanel == null )
-	    return super.getComponent( n );
-	else
-	    return innerPanel.getComponent( n );
-	}
-    public Insets insets( int n )
-	{
-	if ( innerPanel == null )
-	    return super.getInsets();
-	else
-	    return innerPanel.getInsets();
-	}
-    public Component add( Component comp )
-	{
-	if ( innerPanel == null )
-	    return super.add( comp );
-	else
-	    return innerPanel.add( comp );
-	}
-    public Component add( Component comp, int pos )
-	{
-	if ( innerPanel == null )
-	    return super.add( comp, pos );
-	else
-	    return innerPanel.add( comp, pos );
-	}
-    public Component add( String name, Component comp )
-	{
-	if ( innerPanel == null )
-	    return super.add( name, comp );
-	else
-	    return innerPanel.add( name, comp );
-	}
-    public void remove( Component comp )
-	{
-	if ( innerPanel == null )
-	    super.remove( comp );
-	else
-	    innerPanel.remove( comp );
-	}
-    public void removeAll()
-	{
-	if ( innerPanel == null )
-	    super.removeAll();
-	else
-	    innerPanel.removeAll();
-	}
-    public LayoutManager getLayout()
-	{
-	if ( innerPanel == null )
-	    return super.getLayout();
-	else
-	    return innerPanel.getLayout();
-	}
-    public void setLayout( LayoutManager mgr )
-	{
-	if ( innerPanel == null )
-	    super.setLayout( mgr );
-	else
-	    innerPanel.setLayout( mgr );
-	}
-
+    public int countComponents() {
+        if (innerPanel == null)
+            return super.getComponentCount();
+        else
+            return innerPanel.getComponentCount();
     }
+
+    public Component getComponent(int n) {
+        if (innerPanel == null)
+            return super.getComponent(n);
+        else
+            return innerPanel.getComponent(n);
+    }
+
+    public Insets insets(int n) {
+        if (innerPanel == null)
+            return super.getInsets();
+        else
+            return innerPanel.getInsets();
+    }
+
+    public Component add(Component comp) {
+        if (innerPanel == null)
+            return super.add(comp);
+        else
+            return innerPanel.add(comp);
+    }
+
+    public Component add(Component comp, int pos) {
+        if (innerPanel == null)
+            return super.add(comp, pos);
+        else
+            return innerPanel.add(comp, pos);
+    }
+
+    public Component add(String name, Component comp) {
+        if (innerPanel == null)
+            return super.add(name, comp);
+        else
+            return innerPanel.add(name, comp);
+    }
+
+    public void remove(Component comp) {
+        if (innerPanel == null)
+            super.remove(comp);
+        else
+            innerPanel.remove(comp);
+    }
+
+    public void removeAll() {
+        if (innerPanel == null)
+            super.removeAll();
+        else
+            innerPanel.removeAll();
+    }
+
+    public LayoutManager getLayout() {
+        if (innerPanel == null)
+            return super.getLayout();
+        else
+            return innerPanel.getLayout();
+    }
+
+    public void setLayout(LayoutManager mgr) {
+        if (innerPanel == null)
+            super.setLayout(mgr);
+        else
+            innerPanel.setLayout(mgr);
+    }
+
+}

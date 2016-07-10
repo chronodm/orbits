@@ -28,49 +28,57 @@
 
 package acme;
 
-import java.applet.*;
+import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AppletContext;
+import java.applet.AppletStub;
+import java.applet.AudioClip;
 import java.awt.*;
-import java.awt.image.*;
-import java.net.*;
-import java.io.*;
+import java.awt.image.ImageProducer;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
-/// Run an Applet as an application.
-// <P>
-// Using this class you can add a trivial main program to any Applet
-// and run it directly, as well as from a browser or the appletviewer.
-// And unlike some versions of this concept, MainFrame implements both
-// images and sound.
-// <P>
-// Sample main program:
-// <BLOCKQUOTE><PRE>
-// public static void main( String[] args )
-//     {
-//     new Acme.MainFrame( new ThisApplet(), args, 400, 400 );
-//     }
-// </PRE></BLOCKQUOTE>
-// The only methods you need to know about are the constructors.
-// <P>
-// You can specify Applet parameters on the command line, as name=value.
-// For instance, the equivalent of:
-// <BLOCKQUOTE><PRE>
-// &lt;PARAM NAME="pause" VALUE="200"&gt;
-// </PRE></BLOCKQUOTE>
-// would just be:
-// <BLOCKQUOTE><PRE>
-// pause=200
-// </PRE></BLOCKQUOTE>
-// You can also specify three special parameters:
-// <BLOCKQUOTE><PRE>
-// width=N          Width of the Applet.
-// height=N         Height of the Applet.
-// barebones=true   Leave off the menu bar and status area.
-// </PRE></BLOCKQUOTE>
-// <P>
-// <A HREF="/resources/classes/Acme/MainFrame.java">Fetch the software.</A><BR>
-// <A HREF="/resources/classes/Acme.tar.gz">Fetch the entire Acme package.</A>
-
-public class MainFrame extends Frame
+/**
+ * Run an Applet as an application.
+* <P>
+* Using this class you can add a trivial main program to any Applet
+* and run it directly, as well as from a browser or the appletviewer.
+* And unlike some versions of this concept, MainFrame implements both
+* images and sound.
+* <P>
+* Sample main program:
+* <BLOCKQUOTE><PRE>
+* public static void main( String[] args )
+*     {
+*     new Acme.MainFrame( new ThisApplet(), args, 400, 400 );
+*     }
+* </PRE></BLOCKQUOTE>
+* The only methods you need to know about are the constructors.
+* <P>
+* You can specify Applet parameters on the command line, as name=value.
+* For instance, the equivalent of:
+* <BLOCKQUOTE><PRE>
+* &lt;PARAM NAME="pause" VALUE="200"&gt;
+* </PRE></BLOCKQUOTE>
+* would just be:
+* <BLOCKQUOTE><PRE>
+* pause=200
+* </PRE></BLOCKQUOTE>
+* You can also specify three special parameters:
+* <BLOCKQUOTE><PRE>
+* width=N          Width of the Applet.
+* height=N         Height of the Applet.
+* barebones=true   Leave off the menu bar and status area.
+* </PRE></BLOCKQUOTE>
+* <P>
+* <A HREF="http://www.acme.com/resources/classes/Acme/MainFrame.java">Fetch the software.</A><BR>
+* <A HREF="http://www.acme.com/resources/classes/Acme.tar.gz">Fetch the entire Acme package.</A>
+*/
+public class MainFrame extends JFrame
     implements Runnable, AppletStub, AppletContext
     {
 
