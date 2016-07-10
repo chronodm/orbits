@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.javaslang:javaslang:2.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.javaslang/javaslang/2.0.0/2322f3e57a8a74664cdc6acaf1789ba1cd06260e/javaslang-2.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.javaslang/javaslang/2.0.0/cfc3a3503a7aa0fe60cf474db74bd436687d6f65/javaslang-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.javaslang:javaslang-match:2.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.javaslang/javaslang-match/2.0.0/6fe3c249c97903953835bdb2a1ff2fb291067d9c/javaslang-match-2.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.javaslang/javaslang-match/2.0.0/fe7bceb22ec7f5eaa6d9aa8b7d1690918fd35d5e/javaslang-match-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
