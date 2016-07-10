@@ -13,9 +13,8 @@
 
 */
 
-import java.applet.*;
+import java.applet.AudioClip;
 import java.awt.*;
-import java.util.*;
 
 public abstract class VisualFeedback extends Canvas {
     protected int cWidth, cHeight;

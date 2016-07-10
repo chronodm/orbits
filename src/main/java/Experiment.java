@@ -14,10 +14,9 @@
 
 */
 
-import java.applet.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
-import java.util.*;
-import java.net.*;
 
 public abstract class Experiment extends Applet implements Runnable {
     static String appName = "experiment";       // Experiment name
