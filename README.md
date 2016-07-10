@@ -2,4 +2,7 @@
 
 Adapted from
 [Orbits in Strongly Curved Spacetime](http://www.fourmilab.ch/gravitation/orbits/)
-by [John Walker](http://www.fourmilab.ch/).
+by [John Walker](http://www.fourmilab.ch/), which is in the public domain, and
+incorporating [MainFrame](src/main/java/Acme/MainFrame.java) and
+[BorderPanel](src/main/java/Acme/Widgets/BorderPanel.java) by
+[Jef Poskanzer](jef@mail.acme.com).
