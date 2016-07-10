@@ -4,15 +4,15 @@ CLASSPATH = /usr/java/classes:.
 WEBTEST = /ftp/entrenous/gr
 WEBREL = /ftp/gravitation/orbits
 
-SOURCE = Makefile Schwarzschild.java VisualFeedback.java bonk.au \
+SOURCE = Makefile fourmilab.Schwarzschild.java fourmilab.VisualFeedback.java bonk.au \
 	 e.html energy.java energyPlot.java experiment.java \
 	 orbitViewer.java
 
 #OPTIMISE = -O
 OPTIMISE = -g
 
-all:	experiment.class VisualFeedback.class energyPlot.class energy.class \
-	orbitViewer.class Schwarzschild.class
+all:	experiment.class fourmilab.VisualFeedback.class energyPlot.class energy.class \
+	orbitViewer.class fourmilab.Schwarzschild.class
 #	orbitPlot.class orbit.class
 
 test:	all
